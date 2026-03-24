@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "titles": ["A quarta morada", "Trompe l'oeil", "Imanência e transcendência"],
+    "side": "Direito", "location": "Atelie", "year": 2025,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "a_quarta_morada_1.jpg",
+    "photos": ["a_quarta_morada_1.jpg","a_quarta_morada_2.jpg","a_quarta_morada_3.jpg","a_quarta_morada_4.jpg"]
+  },
+  {
+    "id": 1,
+    "titles": ["Sinédoque", "Uma visão que bata nas turbinas elétricas", "Mas não sumiu"],
+    "side": "Direito", "location": "Mesa", "year": 2023,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "sinedoque_1.jpg",
+    "photos": ["sinedoque_1.jpg"]
+  },
+  {
+    "id": 2,
+    "titles": ["Da perspectiva e contra ela", "Devorei muitos quadrados", "POV"],
+    "side": "Esquerdo", "location": "Atelie", "year": 2024,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": null,
+    "photos": []
+  },
+  {
+    "id": 3,
+    "titles": ["O caminho para si mesmo. Pela impossibilidade de não ser", "A transfiguração do tabu em totem", "A menor distância entre dois pontos"],
+    "side": "Direito", "location": "UFSCar", "year": 2025,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "o_caminho_para_si_mesmo_1.jpg",
+    "photos": ["o_caminho_para_si_mesmo_1.jpg","o_caminho_para_si_mesmo_2.jpg","o_caminho_para_si_mesmo_3.jpg"]
+  },
+  {
+    "id": 4,
+    "titles": ["Os futuristas e os outros", "Distâncias tornam difícil o contrário", "Sonotron"],
+    "side": "Esquerdo", "location": "Mesa", "year": 2021,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "os_futuristas_e_os_outros_1.jpg",
+    "photos": ["os_futuristas_e_os_outros_1.jpg","os_futuristas_e_os_outros_2.jpg"]
+  },
+  {
+    "id": 5,
+    "titles": ["Lá menor com nona", "Não quero ser... sem que me olhes", "Noeyni"],
+    "side": "Esquerdo", "location": "Mesa", "year": 2023,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "la_menor_com_nona_1.jpg",
+    "photos": ["la_menor_com_nona_1.jpg"]
+  },
+  {
+    "id": 6,
+    "titles": ["Por uma identidade que não me devore", "Eu existo apenas na privacidade dos meus sonhos", "Eu posso parar quando eu quiser"],
+    "side": "Esquerdo", "location": "Mesa", "year": 2021,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "por_uma_identidade_que_nao_me_devore_1.jpg",
+    "photos": ["por_uma_identidade_que_nao_me_devore_1.jpg","por_uma_identidade_que_nao_me_devore_2.jpg","por_uma_identidade_que_nao_me_devore_3.jpg"]
+  },
+  {
+    "id": 7,
+    "titles": ["Só me interessa o que não é meu", "HyperLogLog++", "Os símbolos da prosperidade são os símbolos da dependência"],
+    "side": "Direito", "location": "Mesa", "year": 2023,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "so_me_interessa_o_que_nao_e_meu_1.jpg",
+    "photos": ["so_me_interessa_o_que_nao_e_meu_1.jpg","so_me_interessa_o_que_nao_e_meu_2.jpg","so_me_interessa_o_que_nao_e_meu_3.jpg","so_me_interessa_o_que_nao_e_meu_4.jpg","so_me_interessa_o_que_nao_e_meu_5.jpg"]
+  },
+  {
+    "id": 8,
+    "titles": ["A ilusão do percurso retilíneo da aleluia ao tangenciar a luz", "Uma história em 3 partes", "Tonantzin"],
+    "side": "Esquerdo", "location": "Mesa", "year": 2022,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "a_ilusao_do_percurso_retilinea_1.jpg",
+    "photos": ["a_ilusao_do_percurso_retilinea_1.jpg","a_ilusao_do_percurso_retilinea_2.jpg"]
+  },
+  {
+    "id": 9,
+    "titles": ["Balahaus", "Erros de design com grandes consequências", "A sombra mais escura é aquela sob a vela"],
+    "side": "Direito", "location": "Emoldurar", "year": 2024,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": null,
+    "photos": []
+  },
+  {
+    "id": 10,
+    "titles": ["Schadenfreude", "Chutando a escada", "O critério de Kelly"],
+    "side": "Esquerdo", "location": "Mesa", "year": 2024,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "schadenfreude_1.jpg",
+    "photos": ["schadenfreude_1.jpg"]
+  },
+  {
+    "id": 11,
+    "titles": ["The bends", "Emitiram um comunicado adiando o futuro em mais duas gerações, você viu?", "Apoptose"],
+    "side": "Direito", "location": "Mesa", "year": 2022,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "the_bends_1.jpg",
+    "photos": ["the_bends_1.jpg","the_bends_2.jpg"]
+  },
+  {
+    "id": 12,
+    "titles": ["O instinto caraíba", "Ossobuco", "Ativo fiscal e passivo não circulante"],
+    "side": "Esquerdo", "location": "Casa", "year": 2022,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "o_instinto_caraiba_1.jpg",
+    "photos": ["o_instinto_caraiba_1.jpg"]
+  },
+  {
+    "id": 13,
+    "titles": ["الرمال المتحركة", "Ursula cega", "Morganídeo"],
+    "side": "Direito", "location": "Casa", "year": 2025,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "ursula_cega_1.jpg",
+    "photos": ["ursula_cega_1.jpg","ursula_cega_2.jpg"]
+  },
+  {
+    "id": 14,
+    "titles": ["Arte da capa para \"Kineli\" (Não lançado)", "Sigam meu mano nas redes", "@igorkineli"],
+    "side": "Esquerdo", "location": "Mesa", "year": 2024,
+    "series": "semaforismo", "exhibitions": ["biblioteca-ufscar-2025"],
+    "photo": "arte_da_capa_para_kineli_1.jpg",
+    "photos": ["arte_da_capa_para_kineli_1.jpg"]
+  }
+]

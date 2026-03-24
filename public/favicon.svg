@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#cdd8e2"/>
+  <!-- top diamond terminal (Blackletter/Fraktur style) -->
+  <polygon points="16,4 21,8 16,12 11,8" fill="#111111"/>
+  <!-- stem -->
+  <rect x="14.25" y="8" width="3.5" height="16" fill="#111111"/>
+  <!-- bottom diamond terminal -->
+  <polygon points="16,20 21,24 16,28 11,24" fill="#111111"/>
+</svg>

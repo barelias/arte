@@ -1,0 +1,320 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #cdd8e2;
+  --text: #111111;
+  --text-dim: #888888;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.app {
+  display: grid;
+  grid-template-columns: 170px 1fr 210px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Left nav ─────────────────────────────────────── */
+.nav {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Hierarchy: brand > link > label */
+.nav-brand {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 40px;
+}
+
+.nav-section {
+  margin-bottom: 28px;
+}
+
+.nav-label {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.nav-link {
+  display: block;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  padding: 3px 0;
+  cursor: pointer;
+  line-height: 1.7;
+  transition: opacity 0.15s ease;
+  user-select: none;
+}
+.nav-link:hover  { opacity: 0.45; }
+.nav-link.active { font-weight: 700; }
+
+/* ── Series dropdown ──────────────────────────────── */
+.nav-series-trigger {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.nav-series-trigger:hover { opacity: 0.55; }
+.nav-chevron { font-size: 7px; }
+
+.nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(0,0,0,0.15);
+  max-height: 55vh;
+  overflow-y: auto;
+}
+.nav-dropdown::-webkit-scrollbar { width: 2px; }
+.nav-dropdown::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); }
+
+/* ── Center main ──────────────────────────────────── */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* overflow visible so scattered cards aren't clipped */
+  overflow: visible;
+  gap: 20px;
+}
+
+/* ── Gallery stage ────────────────────────────────── */
+.stage {
+  position: relative;
+  width: 480px;
+  height: 580px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.artwork-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  background: transparent;
+  overflow: hidden;
+}
+
+.artwork-card img {
+  display: block;
+  width: auto;
+  height: auto;
+  /* both constraints active: whichever axis hits its limit first governs,
+     the other axis scales proportionally — aspect ratio always preserved */
+  max-width: 500px;
+  max-height: 560px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.artwork-card.is-front { cursor: default; }
+.artwork-card.is-back  { cursor: pointer; }
+
+/* ── Info panel ───────────────────────────────────── */
+.info-panel {
+  width: 480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  /* always readable over any scattered card */
+  position: relative;
+  z-index: 9999;
+  background: var(--bg);
+  padding: 14px 0 6px;
+  /* extra top margin keeps it away from the lowest scatter positions */
+  margin-top: 32px;
+}
+
+.info-titles { flex: 1; min-width: 0; }
+
+.info-title {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.info-title-alt {
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+}
+
+.info-ou {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  margin-right: 5px;
+  font-style: italic;
+}
+
+.info-meta { text-align: right; flex-shrink: 0; }
+
+.info-meta-row {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.10em;
+  color: var(--text-dim);
+  line-height: 1.9;
+  text-transform: uppercase;
+}
+
+.info-counter {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+/* ── Right thumbnails ─────────────────────────────── */
+.thumbnails {
+  padding: 14px 10px;
+  overflow-y: auto;
+  min-height: 0;        /* fixes CSS Grid scroll — grid items default to min-height:auto */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px 4px;        /* row-gap column-gap */
+  align-content: start;
+}
+
+.thumbnails::-webkit-scrollbar { width: 3px; }
+.thumbnails::-webkit-scrollbar-track { background: transparent; }
+.thumbnails::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.18);
+  border-radius: 2px;
+}
+
+.thumbnail {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: #c8c0b8;
+  transition: opacity 0.18s ease;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Use filter instead of opacity — keeps the thumbnail opaque so
+   adjacent images never bleed through during hover/pile states */
+.thumbnail:hover   { filter: brightness(0.78); }
+.thumbnail.in-pile { filter: brightness(0.65); }
+
+.thumbnail.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  outline: 1.5px solid var(--text);
+  outline-offset: -1.5px;
+  pointer-events: none;
+}
+
+.thumb-num {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  html, body { overflow: auto; }
+  #root { height: auto; }
+
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .nav-brand { margin-bottom: 0; font-size: 12px; }
+  .nav-section { margin-bottom: 0; }
+  .main { padding: 32px 16px; min-height: 80vh; overflow: hidden; }
+
+  .stage { width: min(420px, 90vw); height: min(520px, 112vw); }
+  .artwork-card img { max-width: min(340px, 80vw); max-height: 60vw; }
+  .info-panel { width: min(420px, 90vw); }
+
+  .thumbnails {
+    min-height: unset;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 12px;
+    gap: 5px;
+  }
+}
