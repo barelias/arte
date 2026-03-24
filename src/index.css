@@ -338,7 +338,7 @@ body {
 
   .app {
     grid-template-columns: 1fr;
-    grid-template-rows: 48px 1fr 84px;
+    grid-template-rows: 48px 1fr 76px;
     height: 100dvh;
     overflow: hidden;
   }
@@ -370,25 +370,49 @@ body {
     font-family: var(--font-mono);
   }
 
-  /* Main: full-area, no padding */
+  /* Main: flex column — image fills space, info panel below */
   .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     padding: 0;
     min-height: unset;
     overflow: visible;
     gap: 0;
   }
 
+  /* Stage takes all space above the info panel */
   .stage {
+    flex: 1;
+    min-height: 0;
     width: 100vw;
-    height: calc(100dvh - 48px - 84px);
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  /* Only the front card — no pile, no scatter */
+  .artwork-card.is-back  { display: none; }
+  .artwork-card.is-front {
+    transform: translate(-50%, -50%) scale(1) !important;
   }
 
   .artwork-card img {
-    max-width: 88vw;
-    max-height: calc(100dvh - 48px - 84px - 12px);
+    max-width: 92vw;
+    max-height: calc(100dvh - 48px - 76px - 72px);
   }
 
-  .info-panel { display: none; }
+  /* Info panel — compact, visible */
+  .info-panel {
+    display: flex;
+    width: 92vw;
+    flex-shrink: 0;
+    margin-top: 0;
+    padding: 8px 0 6px;
+    background: var(--bg);
+    position: relative;
+    z-index: 9999;
+  }
 
   /* Thumbnails → horizontal strip */
   .thumbnails {
@@ -399,14 +423,14 @@ body {
     min-height: unset;
     grid-template-columns: unset;
     align-content: unset;
-    padding: 8px 10px;
+    padding: 6px 10px;
     gap: 5px;
   }
 
   .thumbnail {
     flex-shrink: 0;
-    width: 52px;
-    height: 68px;
+    width: 48px;
+    height: 62px;
     aspect-ratio: unset;
   }
 }
