@@ -176,10 +176,11 @@ function SeriesDropdown({ artworks, selectedId, onSelect }) {
   )
 }
 
-function Nav({ artworks, selectedId, onSelect }) {
+function Nav({ artworks, selectedId, onSelect, onMenuOpen }) {
   return (
     <nav className="nav">
       <div className="nav-brand">Iago<br />Barbosa</div>
+      <button className="nav-hamburger" onClick={onMenuOpen} aria-label="Menu">≡</button>
       <div className="nav-section">
         <div className="nav-label">Séries</div>
         <SeriesDropdown artworks={artworks} selectedId={selectedId} onSelect={onSelect} />
@@ -192,10 +193,40 @@ function Nav({ artworks, selectedId, onSelect }) {
   )
 }
 
+// ── Mobile menu overlay ───────────────────────────────────────
+function MobileMenuOverlay({ artworks, selectedId, onSelect, onClose }) {
+  return (
+    <div className="mobile-overlay">
+      <button className="mobile-overlay-close" onClick={onClose}>×</button>
+      <div className="mobile-overlay-nav">
+        <div className="mobile-overlay-section">
+          <div className="nav-label">Séries</div>
+          <span
+            className={`nav-link ${selectedId === null ? 'active' : ''}`}
+            onClick={() => onSelect(null)}
+          >Todas</span>
+          {artworks.map(a => (
+            <span key={a.id}
+              className={`nav-link ${selectedId === a.id ? 'active' : ''}`}
+              onClick={() => onSelect(a.id)}>
+              {a.titles[0]}
+            </span>
+          ))}
+        </div>
+        <div className="mobile-overlay-section">
+          <div className="nav-label">Exposições</div>
+          <span className="nav-link active">Biblioteca UFSCar 2025</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ── Root ─────────────────────────────────────────────────────
 export default function App() {
   const [artworks, setArtworks] = useState([])
   const [selectedId, setSelectedId] = useState(null)
+  const [menuOpen, setMenuOpen] = useState(false)
   // stack[0] = front (highest z), capped at MAX_PILE
   const [stack, setStack] = useState([])
 
@@ -234,13 +265,22 @@ export default function App() {
 
   return (
     <div className="app">
-      <Nav artworks={artworks} selectedId={selectedId} onSelect={setSelectedId} />
+      <Nav artworks={artworks} selectedId={selectedId} onSelect={setSelectedId}
+        onMenuOpen={() => setMenuOpen(true)} />
       <main className="main">
         <Stage allItems={allItems} stack={stack} onActivate={activateItem} />
         <InfoPanel artwork={activeArtwork} photoIndex={photoIndex}
           photoTotal={activeArtwork?.photos?.length ?? 0} />
       </main>
       <ThumbnailStrip allItems={allItems} stack={stack} onActivate={activateItem} />
+      {menuOpen && (
+        <MobileMenuOverlay
+          artworks={artworks}
+          selectedId={selectedId}
+          onSelect={(id) => { setSelectedId(id); setMenuOpen(false) }}
+          onClose={() => setMenuOpen(false)}
+        />
+      )}
     </div>
   )
 }

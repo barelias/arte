@@ -284,37 +284,129 @@ body {
   pointer-events: none;
 }
 
+/* ── Hamburger (hidden on desktop) ───────────────── */
+.nav-hamburger { display: none; }
+
+/* ── Mobile menu overlay ──────────────────────────── */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-overlay-close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-mono);
+  line-height: 1;
+  padding: 4px;
+}
+
+.mobile-overlay-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.mobile-overlay-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.mobile-overlay-section .nav-label { margin-bottom: 10px; }
+.mobile-overlay-section .nav-link  { font-size: 12px; letter-spacing: 0.12em; padding: 5px 0; }
+
 /* ── Mobile ───────────────────────────────────────── */
 @media (max-width: 900px) {
-  html, body { overflow: auto; }
-  #root { height: auto; }
+  html, body { overflow: hidden; height: 100%; }
+  #root { height: 100dvh; }
 
   .app {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: auto;
-    min-height: 100vh;
+    grid-template-rows: 48px 1fr 84px;
+    height: 100dvh;
+    overflow: hidden;
   }
 
+  /* Nav → thin top bar */
   .nav {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 16px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    gap: 0;
   }
 
-  .nav-brand { margin-bottom: 0; font-size: 12px; }
-  .nav-section { margin-bottom: 0; }
-  .main { padding: 32px 16px; min-height: 80vh; overflow: hidden; }
+  .nav-brand   { margin-bottom: 0; font-size: 11px; line-height: 1.35; }
+  .nav-section { display: none; }
 
-  .stage { width: min(420px, 90vw); height: min(520px, 112vw); }
-  .artwork-card img { max-width: min(340px, 80vw); max-height: 60vw; }
-  .info-panel { width: min(420px, 90vw); }
+  .nav-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1;
+    padding: 0;
+    font-family: var(--font-mono);
+  }
 
-  .thumbnails {
+  /* Main: full-area, no padding */
+  .main {
+    padding: 0;
     min-height: unset;
-    grid-template-columns: repeat(5, 1fr);
-    padding: 12px;
+    overflow: visible;
+    gap: 0;
+  }
+
+  .stage {
+    width: 100vw;
+    height: calc(100dvh - 48px - 84px);
+  }
+
+  .artwork-card img {
+    max-width: 88vw;
+    max-height: calc(100dvh - 48px - 84px - 12px);
+  }
+
+  .info-panel { display: none; }
+
+  /* Thumbnails → horizontal strip */
+  .thumbnails {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: unset;
+    grid-template-columns: unset;
+    align-content: unset;
+    padding: 8px 10px;
     gap: 5px;
+  }
+
+  .thumbnail {
+    flex-shrink: 0;
+    width: 52px;
+    height: 68px;
+    aspect-ratio: unset;
   }
 }
