@@ -61,7 +61,7 @@ function makeItems(artworks, selectedId) {
 
 // ── Image component ──────────────────────────────────────────
 function ArtImg({ artworkId, photo, alt = '', ...rest }) {
-  const src = photo ? `/artworks/sm/${photo}` : null
+  const src = photo ? `${import.meta.env.BASE_URL}artworks/sm/${photo}` : null
   const fallback = makePlaceholder(artworkId)
   const [imgSrc, setImgSrc] = useState(src || fallback)
   useEffect(() => { setImgSrc(src || fallback) }, [photo, artworkId])
@@ -200,7 +200,7 @@ export default function App() {
   const [stack, setStack] = useState([])
 
   useEffect(() => {
-    fetch('/artworks/index.json').then(r => r.json()).then(setArtworks).catch(console.error)
+    fetch(`${import.meta.env.BASE_URL}artworks/index.json`).then(r => r.json()).then(setArtworks).catch(console.error)
   }, [])
 
   const allItems = useMemo(() => makeItems(artworks, selectedId), [artworks, selectedId])
